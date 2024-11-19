@@ -14,5 +14,5 @@ project_name=os.getenv(project_id)
 
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_name, topic_name)
-future = publisher.publish(topic_path, b'publish!', spam='eggs')
+future = publisher.publish(topic_path, b'Event from IoT!', spam='eggs')
 future.result()
