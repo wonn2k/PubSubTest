@@ -3,8 +3,8 @@ from google.cloud import pubsub_v1
 from setenv import setEnv
 
 setEnv()
-sub_id = 'SUB_DATA_RECEIVED'
-topic_id = 'SUB_DATA_RECEIVED_LOCAL'
+sub_id = 'SUB_DATA_RECEIVED_LOCAL'
+topic_id = 'TOPIC_DATA_CALCULATED'
 project_id = 'GOOGLE_CLOUD_PROJECT'
 
 topic_name = os.getenv(topic_id)
