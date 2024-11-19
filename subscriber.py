@@ -1,10 +1,8 @@
 import os
 from google.cloud import pubsub_v1
+from setenv import setEnv
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'C:\Users\KKW\PycharmProjects\PubSubTest\key.json'
-os.environ['GOOGLE_CLOUD_PROJECT'] = 'aqueous-impact-441809-r5'
-os.environ['TOPIC_DATA_RECEIVED'] = 'data_received_IoT'
-os.environ['SUB_DATA_RECEIVED'] = 'data_received_IoT-sub'
+setEnv()
 
 topic_name = 'projects/{project_id}/topics/{topic}'.format(
     project_id=os.getenv('GOOGLE_CLOUD_PROJECT'),
@@ -19,7 +17,7 @@ subscription_name = 'projects/{project_id}/subscriptions/{sub}'.format(
 def callback(message):
     print(message.data)
     print("message received!")
-    #메세지를 수신했음을 Pub/Sub에 알림
+    #메세지를 수신했음을 Pub/Sub에 알림 - 저장된 메세지가 지워짐
     message.ack()
 
 project_id = os.getenv('GOOGLE_CLOUD_PROJECT')
